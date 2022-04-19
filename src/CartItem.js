@@ -9,8 +9,12 @@ class CartItem extends React.Component{
             qty: 1,
             img:''
         }
+        // this.increaseQuantity=this.increaseQuantity.bind(this)
     }
     
+    increaseQuantity=()=>{
+        console.log("this.state" ,this.state)
+    }
     
     
     render(){
@@ -29,9 +33,21 @@ class CartItem extends React.Component{
             <div className="cart-item-actions">
             
             {/* Buttons */}
-            <img alt="deccrease" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992683.png"/>
-            <img alt="increase" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992651.png"/>
-            <img alt="delete" className="action-icons" src="https://cdn-icons.flaticon.com/png/512/484/premium/484662.png?token=exp=1650349931~hmac=89a26ae9371fd660378734e6e15e5792"/>
+            
+            <img alt="increase"
+             className="action-icons" 
+             src="https://cdn-icons-png.flaticon.com/512/992/992651.png"
+             onClick={this.increaseQuantity}    /*to resolve the error::this.increaseQuantity.bind(this)*/
+             />
+             <img alt="deccrease" 
+            className="action-icons" 
+            src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+            onClick={this.decreaseQuantity}
+            />
+            <img alt="delete" 
+            className="action-icons" 
+            src="https://cdn-icons.flaticon.com/png/512/484/premium/484662.png?token=exp=1650349931~hmac=89a26ae9371fd660378734e6e15e5792"
+            />
             </div>
             </div>
         </div>
