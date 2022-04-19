@@ -16,9 +16,9 @@ class CartItem extends React.Component{
             <div className="cart-item-actions">
             
             {/* Buttons */}
-            <img alt="increase" className="action-icons" src="https://cdn-icons.flaticon.com/png/512/2740/premium/2740679.png?token=exp=1650347918~hmac=18ef4059997bf855dd445626a09784ae"/>
-            <img alt="decrease" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992651.png"/>
-            <img alt="delete" className="action-icons" src="https://cdn-icons.flaticon.com/png/512/484/premium/484662.png?token=exp=1650348213~hmac=d1449d1193b4ae7de7d71ec1f09d8201"/>
+            <img alt="deccrease" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992683.png"/>
+            <img alt="increase" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992651.png"/>
+            <img alt="delete" className="action-icons" src="https://cdn-icons.flaticon.com/png/512/484/premium/484662.png?token=exp=1650349931~hmac=89a26ae9371fd660378734e6e15e5792"/>
             </div>
             </div>
         </div>
