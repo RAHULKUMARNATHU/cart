@@ -40,6 +40,44 @@ class Cart extends React.Component {
         }
         // this.increaseQuantity=this.increaseQuantity.bind(this)
     }
+    handleIncreaseQuantity = (product) =>{
+        console.log("heyy plz increase the qty of",product);
+       
+        const {products} = this.state;
+         const index = products.indexOf(product);
+         products[index].qty += 1;
+
+         this.setState({
+             products : products
+         })
+    }
+
+
+    handleDecreaseQuantity = (product) =>{
+        console.log("heyy plz decrease the qty of",product);
+         const {products} = this.state;
+         const index = products.indexOf(product);
+
+         if(products[index].qty === 1){
+             return;
+         } 
+         products[index].qty -= 1;
+
+         this.setState({
+             products : products
+         })
+    }
+
+    handleDeleteProduct = (id) =>{
+        const {products} = this.state;
+
+        const items  = products.filter((item)=> item.id !== id);//gives the another array which element not matched id value
+        
+        this.setState({
+            products:items
+        })
+    }
+
     render(){
         const {products} = this.state;
         return(
@@ -49,6 +87,9 @@ class Cart extends React.Component {
                    <CartItem 
                    product={product} 
                    key={product.id}
+                   onIncreaseQuantity= {this.handleIncreaseQuantity}
+                   onDecreaseQuantity= {this.handleDecreaseQuantity}
+                   onDeleteProduct = {this.handleDeleteProduct}
                    
                    />
                    )

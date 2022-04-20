@@ -1,46 +1,15 @@
 import React from "react";
 
 class CartItem extends React.Component{
-    increaseQuantity= ()=>{
-        console.log("this.state" ,this.state)
-    
-        // setState form1
-        // this.setState ({
-        //   qty:this.state.qty+1
-        //   title: "Something new"
-        // });
-
-        // setState Form2 :- if prev. state is require
-
-        this.setState((prevState) =>{
-            return{
-                qty:prevState.qty+1
-            }
-        });
-    
-    }
-
-
-    decreaseQuantity= ()=>{
-        console.log("this.state" ,this.state)
-        // setState Form2 :- if prev. state is require
-        const{qty} = this.state
-
-        if(qty === 1){
-            return;
-        }
-        this.setState((prevState) =>{
-            return{
-                qty:prevState.qty-1
-            }
-        });
-    
-    }
-    
-    
-    render(){
-        console.log(this.props)
+     render(){
+        console.log("this.props",this.props)
         const {price , title ,qty} = this.props.product;
+        const {
+            product ,
+             onIncreaseQuantity , 
+             onDecreaseQuantity,
+             onDeleteProduct
+            } = this.props;
         return(
         <div className="cart-item">
             <div className="left-block">
@@ -59,16 +28,17 @@ class CartItem extends React.Component{
             <img alt="increase"
              className="action-icons" 
              src="https://cdn-icons-png.flaticon.com/512/992/992651.png"
-             onClick={this.increaseQuantity}    /*to resolve the error::this.increaseQuantity.bind(this)*/
+             onClick= {() => onIncreaseQuantity(product)} /*to resolve the error::this.increaseQuantity.bind(this)*/
              />
              <img alt="deccrease" 
             className="action-icons" 
             src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
-            onClick={this.decreaseQuantity}
+            onClick={() =>onDecreaseQuantity(product)}
             />
             <img alt="delete" 
             className="action-icons" 
             src="https://cdn-icons.flaticon.com/png/512/484/premium/484662.png?token=exp=1650349931~hmac=89a26ae9371fd660378734e6e15e5792"
+            onClick={() => onDeleteProduct(product.id)}
             />
             </div>
             </div>
