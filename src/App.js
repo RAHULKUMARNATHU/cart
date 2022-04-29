@@ -55,7 +55,7 @@ handleIncreaseQuantity = (product) =>{
 
 
 handleDecreaseQuantity = (product) =>{
-    console.log("heyy plz decrease the qty of",product);
+    // console.log("heyy plz decrease the qty of",product);
      const {products} = this.state;
      const index = products.indexOf(product);
 
@@ -96,9 +96,13 @@ getCartTotal = ()=>{
 
   let cartTotal = 0;
 
-  products.map((product) =>{
+  products.map(product =>{
+    if(product.qty>0){
     cartTotal = cartTotal + product.qty * product.price 
-  })
+  
+  }
+  return '';
+})
   return cartTotal;
 
 }
